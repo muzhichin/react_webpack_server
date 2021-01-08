@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import Sidebar from "./sidebar/Sidebar";
-import SidebarToggleContextProvider, { useSidebarToggleContext } from "./sidebar/SidebarToggleContext";
+import SidebarToggleContextProvider, {useSidebarToggleContext} from "./sidebar/SidebarToggleContext";
 
 import './App.scss';
 
@@ -17,14 +17,14 @@ const App = ({navigation, children}) => {
     const isSidebarOpen = useSidebarToggleContext();
 
     return (
-            <div className="app">
-                <div className={classNames('wrapper', { 'sidebar_collapsed': isSidebarOpen })}>
-                    <Sidebar navigation={navigation}/>
-                    <div className="container">
-                        {children}
-                    </div>
+        <div className="app">
+            <div className={classNames('wrapper', {'sidebar_collapsed': isSidebarOpen})}>
+                <Sidebar navigation={navigation}/>
+                <div className="container">
+                    {children}
                 </div>
             </div>
+        </div>
     );
 };
 
