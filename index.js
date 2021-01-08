@@ -38,7 +38,8 @@ client.on("connect", function (res) {
 
 app.use(
     require('webpack-dev-middleware')(compiler, {
-        publicPath: settings.output.publicPath
+        publicPath: settings.output.publicPath,
+        serverSideRender: false
     })
 );
 
@@ -48,9 +49,9 @@ app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-app.get("/", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "./public/index.html"))
-);
+// app.get("/main", (req, res) =>
+//     res.sendFile(path.resolve(__dirname, "./public/index.html"))
+// );
 
 app.post('/server', (req, res) => {
 

@@ -16,7 +16,6 @@ module.exports = {
     entry: {
         index: [
             "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000",
-            'react-hot-loader/patch',
             "./src/index.js"
         ]
     },
@@ -26,7 +25,7 @@ module.exports = {
         hot: true,
     },
     output: {
-        path: path.resolve(__dirname, "./public"),
+        path: path.resolve(__dirname, "../public"),
         filename: "[name].bundle.js",
         publicPath: "/"
     },
