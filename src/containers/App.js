@@ -2,7 +2,7 @@ import React from 'react';
 import App from "../components/App";
 import { Route, Switch } from "react-router-dom";
 import Main from "../containers/Main";
-import Header from "../components/header/Header";
+import Header from "./Header";
 
 const account = [
     {

@@ -1,0 +1,14 @@
+@import "~styles/variables";
+
+.footer {
+  white-space: nowrap;
+  width: 100%;
+  height: 102px;
+  line-height: 15px;
+  padding: 20px;
+
+  @media screen and (max-width: $tb-min) {
+    padding-bottom: 30px;
+    height: 100%;
+  }
+}
