@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSidebarToggleActionsContext } from "../../SidebarToggleContext";
+import {NavLink} from 'react-router-dom';
+import {useSidebarToggleActionsContext} from "../../SidebarToggleContext";
 
 /**
  * Обёртка для пункта меню
@@ -11,7 +11,7 @@ import { useSidebarToggleActionsContext } from "../../SidebarToggleContext";
  * @return {JSX.Element}
  * @constructor
  */
-const MenuItemLayout = ({ onClick, link, children }) => {
+const MenuItemLayout = ({onClick, link, children}) => {
     // Берем из контекста управление сайдбаром
     // Будет нужно для скрытия его при клике на пункт меню на планшетах
     const setSidebarOpen = useSidebarToggleActionsContext();
@@ -21,8 +21,7 @@ const MenuItemLayout = ({ onClick, link, children }) => {
         return (
             <button
                 className="button-toggle__wrapper"
-                onClick={onClick}
-            >
+                onClick={onClick}>
                 <span className="button-toggle">{children}</span>
             </button>
         );

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Navigation from "./navigation/Navigation";
 import logotype from "public/images/example.png";
 
+import './Sidebar.scss'
+
 /**
  * Сайдбар
  *
