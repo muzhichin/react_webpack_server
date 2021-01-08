@@ -1,52 +1,38 @@
-import React, {useEffect, useState} from "react"
-import {hot} from 'react-hot-loader/root';
-import request from '../middleware/handlerRequest';
+import React from 'react';
+import classNames from 'classnames';
+import Sidebar from "./sidebar/Sidebar";
+import SidebarToggleContextProvider, { useSidebarToggleContext } from "./sidebar/SidebarToggleContext";
 
-const socket = new WebSocket('ws://localhost:3000');
+import './App.scss';
 
-socket.onopen = () => {
-    socket.send('Hello Server!');
-}
+/**
+ * Обёртка ПУ
+ * @param {Object[]} navigation Пункты в меню
+ * @param {JSX.Element} children Внутренние элементы
+ * @return {JSX.Element}
+ * @constructor
+ */
+const App = ({navigation, children}) => {
+    // Берем из контекста значение открытости сайдбара
+    const isSidebarOpen = useSidebarToggleContext();
 
+    return (
+            <div className="app">
+                <div className={classNames('wrapper', { 'sidebar_collapsed': isSidebarOpen })}>
+                    <Sidebar navigation={navigation}/>
+                    <div className="container">
+                        {children}
+                    </div>
+                </div>
+            </div>
+    );
+};
 
-export default hot((props) => {
+// Обёртка для доступности контекста из компонента App (который выше)
+const withSidebarToggle = (Component) => (props) => (
+    <SidebarToggleContextProvider>
+        <Component {...props} />
+    </SidebarToggleContextProvider>
+);
 
-    const [state, setState] = useState({
-        textarea: ""
-    })
-
-
-    useEffect(()=> {
-
-        socket.onmessage = (mess) => {
-            console.log(mess)
-            setState((prevState) => ({
-                ...prevState,
-                textarea: mess.data
-            }))
-
-        }
-    }, [])
-
-
-
-   const handleChange = ({target}) => {
-
-        setState({
-            ...state,
-            [target.name]: target.value
-        })
-
-        socket.send(target.value);
-    }
-
-        return <>
-            <div>Hello</div>
-            <div>World</div>
-            <input onChange={handleChange} name={"name"} type="text"/>
-            <input onChange={handleChange} name={"value"} type="text"/>
-
-            <textarea value={state.textarea} readOnly name="server" cols="30" rows="10"/>
-            <button onClick={() => request("/server", "index", state)}>Button</button>
-        </>
-})
+export default withSidebarToggle(App);

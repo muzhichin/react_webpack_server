@@ -5,9 +5,13 @@ const path = require("path");
 module.exports = {
     mode: "development",
     resolve: {
+        extensions: ['.js', '.jsx'],
         alias: {
-            'react-dom': '@hot-loader/react-dom'
+            'react-dom': '@hot-loader/react-dom',
+            'public': path.resolve(__dirname, "../public"),
+            'styles': path.resolve(__dirname, "../src/styles")
         }
+
     },
     entry: {
         index: [

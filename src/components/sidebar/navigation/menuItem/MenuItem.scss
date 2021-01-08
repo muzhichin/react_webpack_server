@@ -1,0 +1,70 @@
+.menu-list__item {
+  display: block;
+  list-style: none;
+
+  .button-toggle__wrapper {
+    width: 100%;
+    margin: 0;
+  }
+
+  .link, .button-toggle {
+    position: relative;
+    padding: 12px 20px;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 21px auto;
+    gap: 20px;
+    align-items: center;
+    justify-items: start;
+
+    font-family: "Proxima Nova", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFF;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      background: #0a3145;
+    }
+
+    &.active {
+      background: #15526a;
+
+      &::before {
+        content: "";
+        width: 6px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background-color: #3dbdf6;
+      }
+    }
+
+    i {
+      width: 21px;
+      height: auto;
+
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .submenu-list {
+
+    .link, .button-toggle {
+      gap: 15px;
+
+      padding: 10px 20px 10px 35px;
+      text-transform: none;
+      font-weight: normal;
+
+      &.active {
+        font-weight: bold;
+      }
+    }
+  }
+}

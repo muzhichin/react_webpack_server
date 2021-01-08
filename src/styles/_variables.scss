@@ -1,5 +1,150 @@
-$font-size: 0.8rem;
-$font-family: 'Montserrat', sans-serif;
-$background-color: #222;
-$font-color: #eee;
-$page-width: 650px;
+//$bp-larger-than-mobile: 420px;
+//$bp-larger-than-phablet: 768px;
+//$bp-larger-than-tablet: 768px;
+//$bp-larger-than-desktop: 1024px;
+//$bp-larger-than-desktophd: 1280px;
+
+// HYML Variables
+
+$h1: 20;
+$h2: 16;
+$h3: 14;
+$h4: 12;
+
+$baseFontSize: 16 !global;
+//------------------//
+
+// Colors - Main
+$white: #ffffff;
+$pale-grey-two: #f0f5f7;
+$navy: #062436; /* Сайдбар */
+$dodger-blue: #3dbdf6;
+$aqua-marine: #32c190;
+
+// Colors - Additional
+$pale-grey-four: #f7fafb; /* Фон */
+$pale-grey-three: #f9fbfc;
+$light-navy: #15526a;
+$slate-grey: #62686c;
+$steel-grey: #7a8185;
+$cool-grey: #afbabf;
+$dark-grey: #939da2;
+$silver: #c8d1d5;
+$pale-grey: #e3e9ec;
+$windows-blue: #339ac8;
+$dark-sky-blue: #37ace0;
+$duck-egg-blue: #c4ebf8;
+$duck-egg-blue-two: #d7f2fa;
+$ice-blue: #f3fcff;
+$aqua-marine-three: #40d4d5;
+$aqua-marine-two: #40d9cd;
+$duck-egg-blue-three: #ecfdf7;
+$scarlet: rgb(208, 2, 27);
+$rouge: #930c22;
+$light-brown: #ffdcb8;
+$carmine: #9c0a21;
+$carmine-two: #a60820;
+$pig-pink: #f0b3ba;
+$sun-yellow: #f5d323;
+
+//------------------//
+
+$size-mobile: 320px; /* We're assuming px sizes are to be used. */
+$size-tablet: 768px;
+$size-desktop: 1024px;
+$size-large: 1280px;
+
+@mixin f-size($font-size) {
+  $rem: $font-size / $baseFontSize;
+  //font-size: $font-size * 1px;
+  font-size: #{$rem}rem;
+}
+
+@mixin mar($mt:0,  $mr: 0,  $mb: 0,  $ml: 0) {
+  $remt: $mt / $baseFontSize;
+  $remr: $mr / $baseFontSize;
+  $remb: $mb / $baseFontSize;
+  $reml: $ml / $baseFontSize;
+  @if $ml != 0 and $mb != 0 and $mt != 0 and $mr != 0 {
+    margin: #{$remt}rem #{$remr}rem #{$remb}rem #{$reml}rem;
+  } @else {
+    @if $mt != 0 {
+      margin-top: #{$remt}rem;
+    }
+    @if $mr != 0 {
+      margin-right: #{$remr}rem;
+    }
+    @if $mb != 0 {
+      margin-bottom: #{$remb}rem;
+    }
+    @if $ml != 0 {
+      margin-left: #{$reml}rem;
+    }
+  }
+}
+
+@mixin pad($pt: 0,$pr: 0,$pb: 0,$pl: 0) {
+  $remt: $pt / $baseFontSize;
+  $remr: $pr / $baseFontSize;
+  $remb: $pb / $baseFontSize;
+  $reml: $pl / $baseFontSize;
+  @if $pl != 0 and $pb != 0 and $pt != 0 and $pr != 0 {
+    padding: #{$remt}rem #{$remr}rem #{$remb}rem #{$reml}rem;
+  } @else {
+    @if $pt != 0 {
+      padding-top: #{$remt}rem;
+    }
+    @if $pr != 0 {
+      padding-right: #{$remr}rem;
+    }
+    @if $pb != 0 {
+      padding-bottom: #{$remb}rem;
+    }
+    @if $pl != 0 {
+      padding-left: #{$reml}rem;
+    }
+  }
+}
+
+@function rem ($px) {
+  $calcRem: $px / $baseFontSize + 0rem;
+  @return $calcRem
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &:-moz-placeholder           { @content; }
+  &::-moz-placeholder          { @content; }
+  &:-ms-input-placeholder      { @content; }
+}
+
+$gutter-width: rem(20);
+$outer-margin: rem(20);
+$gutter-compensation: calc((#{$gutter-width} * 0.5) * -1);
+$half-gutter-width: calc((#{$gutter-width} * 0.5));
+$xs-min: rem(320);
+$sm-min: rem(767);
+$tb-min: rem(1023);
+$md-min: rem(1279);
+$lg-min: rem(1680);
+$screen-xs-min: #{$xs-min};
+$screen-sm-min: #{$sm-min};
+$screen-tb-min: #{$tb-min};
+$screen-md-min: #{$md-min};
+$screen-lg-min: #{$lg-min};
+$container-sm: calc(#{$sm-min} + #{$gutter-width});
+$container-tb: calc(#{$tb-min} + #{$gutter-width});
+$container-md: calc(#{$md-min} + #{$gutter-width});
+$container-lg: calc(#{$lg-min} + #{$gutter-width});
+
+$xs-max: only screen and (max-width: $xs-min);
+$sm-max: only screen and (max-width: $sm-min);
+$tb-max: only screen and (max-width: $tb-min);
+$md-max: only screen and (max-width: $md-min);
+$lg-max: only screen and (max-width: $lg-min);
+
+$xs-viewport: only screen and (min-width: $xs-min);
+$sm-viewport: only screen and (min-width: $sm-min);
+$tb-viewport: only screen and (min-width: $tb-min);
+$md-viewport: only screen and (min-width: $md-min);
+$lg-viewport: only screen and (min-width: $lg-min);
