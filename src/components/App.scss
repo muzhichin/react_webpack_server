@@ -9,10 +9,10 @@
     position: relative;
     overflow-x: hidden;
 
-    //@media screen and (min-width: $tb-min) {
-    //  display: flex;
-    //  flex-direction: row;
-    //}
+    @media screen and (min-width: $tb-min) {
+      display: flex;
+      flex-direction: row;
+    }
 
     .container {
       width: 100%;
@@ -21,9 +21,9 @@
       will-change: transform;
       transition: transform 400ms linear 100ms;
 
-      //@media screen and (min-width: $sm-min) {
-      //  padding: 0 20px 0 20px;
-      //}
+      @media screen and (min-width: $sm-min) {
+        padding: 0 20px 0 20px;
+      }
     }
   }
 }

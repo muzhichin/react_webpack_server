@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import Navigation from "./navigation/Navigation";
 import logotype from "public/images/example.png";
@@ -13,15 +13,15 @@ import './Sidebar.scss'
  * @return {JSX.Element}
  * @constructor
  */
-const Sidebar = ({ navigation }) => {
+const Sidebar = ({navigation}) => {
     return (
         <aside className="sidebar">
             <div className="logotype">
                 <Link to="/">
-                    <img src={logotype} alt="" />
+                    <img style={{width: "100px"}} src={logotype} alt=""/>
                 </Link>
             </div>
-            <Navigation navigation={navigation} />
+            <Navigation navigation={navigation}/>
         </aside>
     )
 }
