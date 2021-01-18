@@ -3,6 +3,7 @@ import App from "../components/App";
 import { Route, Switch } from "react-router-dom";
 import Main from "../containers/Main";
 import Header from "./Header";
+import { hot } from 'react-hot-loader/root';
 
 const account = [
     {
@@ -40,4 +41,4 @@ const AppJs = () => {
     );
 };
 
-export default AppJs;
+export default hot(AppJs);

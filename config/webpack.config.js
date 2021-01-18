@@ -15,13 +15,14 @@ module.exports = {
     },
     entry: {
         index: [
-            "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000",
-            "./src/index.js"
+            "react-hot-loader/patch",
+            "./src/index.js",
+            "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000"
         ]
     },
     devServer: {
         // contentBase: "./src/",
-        historyApiFallback: false,
+        historyApiFallback: true,
         hot: true,
     },
     output: {
