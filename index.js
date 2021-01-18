@@ -36,14 +36,33 @@ client.on("connect", function (res) {
     console.error("redis connect");
 });
 
-app.use(
-    require('webpack-dev-middleware')(compiler, {
-        publicPath: settings.output.publicPath,
-        serverSideRender: false
-    })
-);
+app.use((req, res, next) => {
+
+    console.log(req.method)
+    if (req.method === 'GET') {
+        return require('webpack-dev-middleware')(compiler, {
+            publicPath: settings.output.publicPath,
+            serverSideRender: false,
+        })(req, res, next);
+    } else {
+        return next();
+    }
+})
+
+
+// app.use(
+//     require('webpack-dev-middleware')(compiler, {
+//         publicPath: settings.output.publicPath,
+//         serverSideRender: false,
+//     })
+// );
+
+// app.get('*', (req, res, next) => {
+//
+// })
 
 app.use(require("webpack-hot-middleware")(compiler));
+
 
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));

@@ -21,7 +21,7 @@ module.exports = {
     },
     devServer: {
         // contentBase: "./src/",
-        historyApiFallback: true,
+        historyApiFallback: false,
         hot: true,
     },
     output: {
@@ -64,5 +64,5 @@ module.exports = {
             // Шрифты и SVG
             {test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline'},
         ],
-    }
+    },
 };
