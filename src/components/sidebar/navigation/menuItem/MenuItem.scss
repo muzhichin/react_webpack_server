@@ -18,15 +18,14 @@
     align-items: center;
     justify-items: start;
 
-    font-family: "Proxima Nova", sans-serif;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
     color: #FFF;
     text-decoration: none;
     text-transform: uppercase;
 
     &:hover {
-      background: #0a3145;
+      background: #CCCC99;
     }
 
     &.active {
@@ -39,7 +38,7 @@
         left: 0;
         top: 0;
         height: 100%;
-        background-color: #3dbdf6;
+        background-color: #ce2222;
       }
     }
 
