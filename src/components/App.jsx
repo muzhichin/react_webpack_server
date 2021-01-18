@@ -20,7 +20,6 @@ const App = ({navigation, children}) => {
         <div className="app">
             <div className={classNames('wrapper', {'sidebar_collapsed': isSidebarOpen})}>
                 <Sidebar navigation={navigation}/>
-                <Sidebar navigation={navigation}/>
                 <div className="container">
                     {children}
                 </div>
