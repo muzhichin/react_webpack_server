@@ -7,6 +7,7 @@ import './App.scss';
 
 /**
  * Обёртка ПУ
+ * Обёртка ПУ
  * @param {Object[]} navigation Пункты в меню
  * @param {JSX.Element} children Внутренние элементы
  * @return {JSX.Element}
